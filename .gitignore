@@ -1,0 +1,9 @@
+src/__pycache__/
+env/
+venv/
+.pytest_cache/
+*.docx
+.devcontainer/*
+test/__pycache__/
+data/las/1939.las
+data/las/1939.copc.laz
