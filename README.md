@@ -18,7 +18,10 @@
 3. Ekstrakcja i zapis obrysów hałd wygenerowanych algorytmem alpha shape na podstawie punktów dla kolejnych pred_ID
     - *contour.alpha_shape*
 
+## Przykładowy wyniki działania programu
 Przykładowe wyniki zapisane w **data/RESULTS**
+- res_statistics.geojson - poligony z atrybutami: volume, area, coverage
+- alphashape_contours.geojson - wyekstrahowane obrysy hałd z chmury punktów
 
 ## Uruchomienie
 ### W kontenerze Docker
