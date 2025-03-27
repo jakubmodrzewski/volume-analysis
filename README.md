@@ -26,6 +26,8 @@ Kod pisano w Python:3.13.2. Rekomendowane utworzenie wirtualnego środowiska Pyt
 Uruchomienie skryptu main.py: 
 `python .\src\main.py`
 
+**Podczas uruchamiania zwróć uwagę na ścieżki danych wejściowych. Konieczne jest również wrzucenie chmury punktów (nie została uwzględniona w repo ze względu na duży rozmiar).**
+
 
 ## Testy
 Testy dostępne w folderze *tests*. Uruchomienie testów za pomocą:\
