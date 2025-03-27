@@ -26,21 +26,21 @@ Przykładowe wyniki zapisane w **data/RESULTS**
 ## Uruchomienie
 ### W kontenerze Docker
 Pobierz Dockerfile z repozytorium.\
-`docker build -t volume-analysis .` \
+`docker build -t volume-analysis .` 
+
 Następnie uruchom obraz kontenera mapując folder z danymi i wskazując następnie ścieżki do pliku wektorowego, chmury punktów oraz folderu, w którym zapisanie będą wyniki. Analogicznie jak poniższym przykładzie: \
 `docker run -it -v D:\dev\DATA:/app/data volume-analysis python src/main.py  /app/data/1939.shp /app/data/1939.las /app/data/my-results`
 
 
 ### Lokalnie (Python 3.13.2)
 Rekomendowane utworzenie wirtualnego środowiska Python. Instalacja wymaganych bibliotek: \
-`pip install requirements.txt` \
-Uruchomienie skryptu main.py: 
-`python .\src\main.py`
+`pip install requirements.txt` 
 
-**Podczas uruchamiania zwróć uwagę na ścieżki danych wejściowych. Konieczne jest również wrzucenie chmury punktów (nie została uwzględniona w repo ze względu na duży rozmiar).**
-
+Uruchomienie skryptu main.py: \
+`python .\src\main.py /path/to/vector.shp /path/to/pcd.las /path/to/save/results/in/dir`
 
 ## Testy
 Testy dostępne w folderze *tests*. Uruchomienie testów za pomocą:\
-`pytest test/`\
+`pytest test/`
+
 Do testów generowana jest chmura punktów w kształcie piramidy w celu wyznaczenia jej wzorcowej objętości/pola powierzchni i porównania ich z wynikami funkcji *analysis.calculate_volume* i *calculate_area_from_point_cloud*. Dla testowania wyznaczania objętości wykorzystano dynamiczną tolerancję na podstawie zróżnicowania wysokości w NMPT.
