@@ -21,7 +21,14 @@
 Przykładowe wyniki zapisane w **data/RESULTS**
 
 ## Uruchomienie
-Kod pisano w Python:3.13.2. Rekomendowane utworzenie wirtualnego środowiska Python. Instalacja wymaganych bibliotek: \
+### W kontenerze Docker
+Pobierz Dockerfile z repozytorium.\
+`docker build -t volume-analysis .` \
+`docker run -it -v D:\dev\path-to-data:/app/data volume-analysis`
+
+
+### Lokalnie (Python 3.13.2)
+Rekomendowane utworzenie wirtualnego środowiska Python. Instalacja wymaganych bibliotek: \
 `pip install requirements.txt` \
 Uruchomienie skryptu main.py: 
 `python .\src\main.py`

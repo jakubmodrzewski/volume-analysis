@@ -2,7 +2,7 @@ import geopandas as gpd
 import pandas as pd
 import laspy
 import numpy as np
-import os
+import os, sys
 
 import las_utils
 import analysis
@@ -11,8 +11,9 @@ import vis
 
 
 def main():
-    VECTOR_PATH = r"./data/contours/1939.shp"
-    LAS_PATH = r"./data/las/1939.las"
+    VECTOR_PATH = sys.argv[1]
+    LAS_PATH = sys.argv[2]
+    RESULTS_PATH = sys.argv[3]
     GSD = 0.1
     LAS_CRS = "EPSG:2180"
 
@@ -38,7 +39,6 @@ def main():
     analysis.calculate_statistics_for_polygons(las_pd, dsm_grid, GSD, pred_contours_gdf)
 
     # SAVE RESLTS
-    RESULTS_PATH = r"./data/RESULTS"
     pred_contours_gdf.to_file(os.path.join(RESULTS_PATH, "res_statistics.geojson"), driver="GeoJSON", mode="w")
     
     alpha_contours_gdf = contour.alpha_shape(las_pd[las_pd["pred_ID"] != 0], alpha=0.1)
@@ -47,9 +47,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #TODO opisać metodykę oraz sposób uruchomienia: Dockerfile or manual, Napisać gdzie są przykładowe wyniki
-    # tODO zrobić pipfreeze do requirements
-    #TODO naprawić warninga z alphashape
 
 
 
