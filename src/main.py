@@ -39,6 +39,10 @@ def main():
     analysis.calculate_statistics_for_polygons(las_pd, dsm_grid, GSD, pred_contours_gdf)
 
     # SAVE RESLTS
+    isExist = os.path.exists(RESULTS_PATH)
+    if not isExist:
+        os.makedirs(RESULTS_PATH)
+        
     pred_contours_gdf.to_file(os.path.join(RESULTS_PATH, "res_statistics.geojson"), driver="GeoJSON", mode="w")
     
     alpha_contours_gdf = contour.alpha_shape(las_pd[las_pd["pred_ID"] != 0], alpha=0.1)

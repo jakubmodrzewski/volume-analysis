@@ -24,7 +24,8 @@ Przykładowe wyniki zapisane w **data/RESULTS**
 ### W kontenerze Docker
 Pobierz Dockerfile z repozytorium.\
 `docker build -t volume-analysis .` \
-`docker run -it -v D:\dev\path-to-data:/app/data volume-analysis`
+Następnie uruchom obraz kontenera mapując folder z danymi i wskazując następnie ścieżki do pliku wektorowego, chmury punktów oraz folderu, w którym zapisanie będą wyniki. Analogicznie jak poniższym przykładzie: \
+`docker run -it -v D:\dev\DATA:/app/data volume-analysis python src/main.py  /app/data/1939.shp /app/data/1939.las /app/data/my-results`
 
 
 ### Lokalnie (Python 3.13.2)
